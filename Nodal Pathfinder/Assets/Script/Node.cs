@@ -5,9 +5,6 @@ using UnityEngine;
 public class Node : MonoBehaviour
 {
     private int id;
-    private Node boundaryA, boundaryB, boundaryC, bounderyD;
-    public Node BoundaryA { get; set; }
-    public Node BoundaryB { get; set; }
-    public Node BoundaryC { get; set; }
-    public Node BoundaryD { get; set; }
+    private Node[] nodeConection = new Node[4];
+    public Node[] NodeConection { get => nodeConection; set => nodeConection = value; }
 }

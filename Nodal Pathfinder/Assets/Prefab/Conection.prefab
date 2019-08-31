@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 4011527853248102639}
   - component: {fileID: 2234512591516249970}
   m_Layer: 8
-  m_Name: Boundary
-  m_TagString: Boundary
+  m_Name: Conection
+  m_TagString: Conection
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

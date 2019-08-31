@@ -58,7 +58,7 @@ PrefabInstance:
     - target: {fileID: 4938797610199620091, guid: 4563dd24fd88ae84cac5c99cb8f5890f,
         type: 3}
       propertyPath: m_Name
-      value: PF_boundary_d
+      value: PF_conection_3
       objectReference: {fileID: 0}
     - target: {fileID: 8273529894410513384, guid: 4563dd24fd88ae84cac5c99cb8f5890f,
         type: 3}
@@ -218,7 +218,7 @@ PrefabInstance:
     - target: {fileID: 4938797610199620091, guid: 4563dd24fd88ae84cac5c99cb8f5890f,
         type: 3}
       propertyPath: m_Name
-      value: PF_boundary_b
+      value: PF_conection_1
       objectReference: {fileID: 0}
     - target: {fileID: 8273529894410513384, guid: 4563dd24fd88ae84cac5c99cb8f5890f,
         type: 3}
@@ -293,7 +293,7 @@ PrefabInstance:
     - target: {fileID: 4938797610199620091, guid: 4563dd24fd88ae84cac5c99cb8f5890f,
         type: 3}
       propertyPath: m_Name
-      value: PF_boundary_c
+      value: PF_conection_2
       objectReference: {fileID: 0}
     - target: {fileID: 8273529894410513384, guid: 4563dd24fd88ae84cac5c99cb8f5890f,
         type: 3}
@@ -368,7 +368,7 @@ PrefabInstance:
     - target: {fileID: 4938797610199620091, guid: 4563dd24fd88ae84cac5c99cb8f5890f,
         type: 3}
       propertyPath: m_Name
-      value: PF_boundary_a
+      value: PF_conection_0
       objectReference: {fileID: 0}
     - target: {fileID: 8273529894410513384, guid: 4563dd24fd88ae84cac5c99cb8f5890f,
         type: 3}

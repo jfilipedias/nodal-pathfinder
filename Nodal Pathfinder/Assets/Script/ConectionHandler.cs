@@ -6,63 +6,47 @@ using UnityEngine;
 public class ConectionHandler : MonoBehaviour
 {
     public Material materialEnabled, materialConected;
-    private Node node;
+    private Node nodeParent;
 
-    private void Awake()
+    private void OnEnable()
     {
-        node = this.GetComponentInParent<Node>();
+        nodeParent = this.GetComponentInParent<Node>();
     }
+
+    /*private void Start()
+    {
+        Debug.Log(node.name + ", " + this.name);
+    }*/
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Boundary")){
+        if(other.gameObject.CompareTag("Conection")){
             this.GetComponent<Renderer>().material = materialConected;
             SetNodeConection(other.transform.GetComponentInParent<Node>());
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Boundary"))
-        {
-            this.GetComponent<Renderer>().material = materialEnabled;
-            ClearNodeConection(other.transform.GetComponentInParent<Node>());
-        }
-    }
-
     private void SetNodeConection(Node nodeConected)
     {
-        switch (this.name){
-            case "PF_boundary_a":
-                this.node.BoundaryA = nodeConected;
-                break;
-            case "PF_boundary_b":
-                this.node.BoundaryB = nodeConected;
-                break;
-            case "PF_boundary_c":
-                this.node.BoundaryC = nodeConected;
-                break;
-            case "PF_boundary_d":
-                this.node.BoundaryD = nodeConected;
-                break;
-        }
-    }
+        /*if (nodeConected == null)
+            Debug.Log("Invalid conection");
+        else
+            Debug.Log("Valid conection with " + nodeConected);
+        */
 
-    private void ClearNodeConection(Node nodeConected)
-    {
         switch (this.name)
         {
-            case "PF_boundary_a":
-                this.node.BoundaryA = null;
+            case "PF_conection_0":
+                nodeParent.NodeConection[0] = nodeConected;
                 break;
-            case "PF_boundary_b":
-                this.node.BoundaryB = null;
+            case "PF_conection_1":
+                nodeParent.NodeConection[1] = nodeConected;
                 break;
-            case "PF_boundary_c":
-                this.node.BoundaryC = null;
+            case "PF_conection_2":
+                nodeParent.NodeConection[2] = nodeConected;
                 break;
-            case "PF_boundary_d":
-                this.node.BoundaryD = null;
+            case "PF_conection_3":
+                nodeParent.NodeConection[3] = nodeConected;
                 break;
         }
     }
