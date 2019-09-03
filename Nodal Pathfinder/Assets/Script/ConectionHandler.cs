@@ -37,16 +37,16 @@ public class ConectionHandler : MonoBehaviour
         switch (this.name)
         {
             case "PF_conection_0":
-                nodeParent.NodeConection[0] = nodeConected;
+                nodeParent.Neighbour[0] = nodeConected;
                 break;
             case "PF_conection_1":
-                nodeParent.NodeConection[1] = nodeConected;
+                nodeParent.Neighbour[1] = nodeConected;
                 break;
             case "PF_conection_2":
-                nodeParent.NodeConection[2] = nodeConected;
+                nodeParent.Neighbour[2] = nodeConected;
                 break;
             case "PF_conection_3":
-                nodeParent.NodeConection[3] = nodeConected;
+                nodeParent.Neighbour[3] = nodeConected;
                 break;
         }
     }

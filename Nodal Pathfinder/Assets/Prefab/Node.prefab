@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d0687fe37b696c43b1202dcb02132ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isWalkable: 1
 --- !u!1001 &2102484839713716404
 PrefabInstance:
   m_ObjectHideFlags: 0
