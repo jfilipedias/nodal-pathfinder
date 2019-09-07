@@ -16,7 +16,7 @@ public class Pathfinder : MonoBehaviour
 
             for (int i = 1; i < openSet.Count; i++)
             {
-                if(openSet[i].FCost < currentNode.FCost || (openSet[i].FCost == currentNode.FCost && openSet[i].Hcost < currentNode.Hcost))
+                if(openSet[i].FCost < currentNode.FCost || (openSet[i].FCost == currentNode.FCost && openSet[i].HCost < currentNode.HCost))
                 {
                     currentNode = openSet[i];
                 }
@@ -35,12 +35,20 @@ public class Pathfinder : MonoBehaviour
                     continue;
                 }
 
+                float newMovementCostToNeighbour = currentNode.GCost + GetDistanceBetweenNodes(currentNode, neighbour);
+                if(newMovementCostToNeighbour < neighbour.GCost || !openSet.Contains(neighbour))
+                {
+
+                }
             }
         }
     }
 
-    private int GetDistanceBetweenNodes(Node nodeA, Node nodeB)
+    private float GetDistanceBetweenNodes(Node nodeA, Node nodeB)
     {
-        
+        float distanceX = Mathf.Abs(nodeA.Position.x - nodeB.Position.x);
+        float distanceY = Mathf.Abs(nodeA.Position.y - nodeB.Position.y);
+
+        return distanceX + distanceY;
     }
 }
