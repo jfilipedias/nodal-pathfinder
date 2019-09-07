@@ -36,7 +36,8 @@ public class Pathfinder : MonoBehaviour
                 }
 
                 float newMovementCostToNeighbour = currentNode.GCost + GetDistanceBetweenNodes(currentNode, neighbour);
-                if(newMovementCostToNeighbour < neighbour.GCost || !openSet.Contains(neighbour))
+
+                if (newMovementCostToNeighbour < neighbour.GCost || !openSet.Contains(neighbour))
                 {
 
                 }
