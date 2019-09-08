@@ -4,21 +4,23 @@ using UnityEngine;
 
 public class Node : MonoBehaviour
 {
+    //Attributes
     [SerializeField] private bool isWalkable;
-    private Node[] neighbour = new Node[4];
-    private int gCost;
-    private int hCost;
-    private Vector2 position;
-    public bool IsWalkable { get => isWalkable; set => isWalkable = value; }
-    public Node[] Neighbour { get => neighbour; set => neighbour = value; }
-    public int GCost { get => gCost; }
-    public int HCost { get => hCost; }
-    public int FCost { get => gCost + hCost; }
-    public Vector2 Position { get => position; set => position = value; }
 
-    private void Awake()
-    {
-        position.x = this.transform.position.x;
-        position.y = this.transform.position.y;
-    }
+    private Node[] neighbour = new Node[4];
+
+    private Node parent;
+
+    private float gCost, hCost, fCost;
+
+    //Propeties
+    public bool IsWalkable { get => isWalkable; set => isWalkable = value; }
+
+    public Node[] Neighbour { get => neighbour; set => neighbour = value; }
+
+    public Node Parent { get => parent; set => parent = value; }
+
+    public float GCost { get => gCost; set => gCost = value; }
+    public float HCost { get => hCost; set => hCost = value; }
+    public float FCost { get => gCost + hCost; }
 }

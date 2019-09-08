@@ -26,7 +26,10 @@ public class Pathfinder : MonoBehaviour
             closedSet.Add(currentNode);
 
             if (currentNode == targetNode)
+            {
+                RetracePath(startNode, targetNode);
                 return;
+            }
 
             foreach (Node neighbour in currentNode.Neighbour)
             {
@@ -39,17 +42,40 @@ public class Pathfinder : MonoBehaviour
 
                 if (newMovementCostToNeighbour < neighbour.GCost || !openSet.Contains(neighbour))
                 {
+                    neighbour.GCost = newMovementCostToNeighbour;
+                    neighbour.HCost = GetDistanceBetweenNodes(neighbour, targetNode);
+                    neighbour.Parent = currentNode;
 
+                    if (!openSet.Contains(neighbour))
+                    {
+                        openSet.Add(neighbour);
+                    }
                 }
             }
         }
     }
 
+
+    private void RetracePath(Node startNode, Node endNode)
+    {
+        List<Node> path = new List<Node>();
+        Node currentNode = endNode;
+
+        while (currentNode != startNode)
+        {
+            path.Add(currentNode);
+            currentNode = currentNode.Parent;
+        }
+
+        path.Reverse();
+    }
+
+
     private float GetDistanceBetweenNodes(Node nodeA, Node nodeB)
     {
-        float distanceX = Mathf.Abs(nodeA.Position.x - nodeB.Position.x);
-        float distanceY = Mathf.Abs(nodeA.Position.y - nodeB.Position.y);
+        float distanceX = Mathf.Abs(nodeA.transform.position.x - nodeB.transform.position.x);
+        float distanceZ = Mathf.Abs(nodeA.transform.position.z - nodeB.transform.position.z);
 
-        return distanceX + distanceY;
+        return distanceX + distanceZ;
     }
 }
