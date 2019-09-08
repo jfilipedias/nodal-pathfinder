@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class Pathfinder : MonoBehaviour
 {
+    private List<Node> path = new List<Node>();
+    public List<Node> Path { get => path; }
+
     public void FindPath(Node startNode, Node targetNode)
     {
+        Debug.Log("Try find");
+
         List<Node> openSet = new List<Node>();
         HashSet<Node> closedSet = new HashSet<Node>();
         openSet.Add(startNode);
@@ -57,8 +62,7 @@ public class Pathfinder : MonoBehaviour
 
 
     private void RetracePath(Node startNode, Node endNode)
-    {
-        List<Node> path = new List<Node>();
+    {        
         Node currentNode = endNode;
 
         while (currentNode != startNode)

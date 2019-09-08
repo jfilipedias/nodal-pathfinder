@@ -5,7 +5,8 @@ using UnityEngine;
 public class Node : MonoBehaviour
 {
     //Attributes
-    [SerializeField] private bool isWalkable;
+    [SerializeField]
+    private bool isWalkable = true;
 
     private Node[] neighbour = new Node[4];
 

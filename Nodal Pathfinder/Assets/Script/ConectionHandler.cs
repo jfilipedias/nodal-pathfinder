@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class ConectionHandler : MonoBehaviour
 {
-    public Material materialEnabled, materialConected;
+    public Material conectedMaterial;
     private Node nodeParent;
 
     private void OnEnable()
@@ -13,40 +12,29 @@ public class ConectionHandler : MonoBehaviour
         nodeParent = this.GetComponentInParent<Node>();
     }
 
-    /*private void Start()
-    {
-        Debug.Log(node.name + ", " + this.name);
-    }*/
-
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Conection")){
-            this.GetComponent<Renderer>().material = materialConected;
+            this.GetComponent<Renderer>().material = conectedMaterial;
             SetNodeConection(other.transform.GetComponentInParent<Node>());
         }
     }
 
-    private void SetNodeConection(Node nodeConected)
+    private void SetNodeConection(Node conectedNode)
     {
-        /*if (nodeConected == null)
-            Debug.Log("Invalid conection");
-        else
-            Debug.Log("Valid conection with " + nodeConected);
-        */
-
         switch (this.name)
         {
             case "PF_conection_0":
-                nodeParent.Neighbour[0] = nodeConected;
+                nodeParent.Neighbour[0] = conectedNode;
                 break;
             case "PF_conection_1":
-                nodeParent.Neighbour[1] = nodeConected;
+                nodeParent.Neighbour[1] = conectedNode;
                 break;
             case "PF_conection_2":
-                nodeParent.Neighbour[2] = nodeConected;
+                nodeParent.Neighbour[2] = conectedNode;
                 break;
             case "PF_conection_3":
-                nodeParent.Neighbour[3] = nodeConected;
+                nodeParent.Neighbour[3] = conectedNode;
                 break;
         }
     }
