@@ -8,7 +8,7 @@ public class Node : MonoBehaviour
     [SerializeField]
     private bool isWalkable = true;
 
-    private Node[] neighbour = new Node[4];
+    private List<Node> neighbour = new List<Node>();
 
     private Node parent;
 
@@ -17,7 +17,7 @@ public class Node : MonoBehaviour
     //Propeties
     public bool IsWalkable { get => isWalkable; set => isWalkable = value; }
 
-    public Node[] Neighbour { get => neighbour; set => neighbour = value; }
+    public List<Node> Neighbour { get => neighbour; set => neighbour = value; }
 
     public Node Parent { get => parent; set => parent = value; }
 

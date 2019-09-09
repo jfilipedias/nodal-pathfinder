@@ -54,7 +54,8 @@ public class ClickController : MonoBehaviour
     {
         foreach(Node node in pathfinder.Path)
         {
-            node.gameObject.GetComponent<Renderer>().material = pathMaterial;
+            GameObject nodeCore = node.gameObject.transform.GetChild(0).gameObject;
+            nodeCore.GetComponent<Renderer>().material = pathMaterial;
         }
     }
 }

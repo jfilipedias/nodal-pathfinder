@@ -5,11 +5,11 @@ using UnityEngine;
 public class ConectionHandler : MonoBehaviour
 {
     public Material conectedMaterial;
-    private Node nodeParent;
+    private Node node;
 
     private void OnEnable()
     {
-        nodeParent = this.GetComponentInParent<Node>();
+        node = this.GetComponentInParent<Node>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -20,22 +20,8 @@ public class ConectionHandler : MonoBehaviour
         }
     }
 
-    private void SetNodeConection(Node conectedNode)
+    private void SetNodeConection(Node neighbourNode)
     {
-        switch (this.name)
-        {
-            case "PF_conection_0":
-                nodeParent.Neighbour[0] = conectedNode;
-                break;
-            case "PF_conection_1":
-                nodeParent.Neighbour[1] = conectedNode;
-                break;
-            case "PF_conection_2":
-                nodeParent.Neighbour[2] = conectedNode;
-                break;
-            case "PF_conection_3":
-                nodeParent.Neighbour[3] = conectedNode;
-                break;
-        }
+        node.Neighbour.Add(neighbourNode);
     }
 }
