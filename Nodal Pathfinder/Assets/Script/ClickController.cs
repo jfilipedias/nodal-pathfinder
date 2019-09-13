@@ -52,6 +52,7 @@ public class ClickController : MonoBehaviour
 
     private void DrawPath()
     {
+        startNode.gameObject.transform.GetChild(0).GetComponent<Renderer>().material = pathMaterial;
         foreach(Node node in pathfinder.Path)
         {
             GameObject nodeCore = node.gameObject.transform.GetChild(0).gameObject;

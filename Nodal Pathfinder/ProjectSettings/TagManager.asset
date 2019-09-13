@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Node
   - Conection
+  - Obstacle
   layers:
   - Default
   - TransparentFX

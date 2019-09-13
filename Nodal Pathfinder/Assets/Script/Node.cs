@@ -5,7 +5,6 @@ using UnityEngine;
 public class Node : MonoBehaviour
 {
     //Attributes
-    [SerializeField]
     private bool isWalkable = true;
 
     private List<Node> neighbour = new List<Node>();
@@ -13,6 +12,24 @@ public class Node : MonoBehaviour
     private Node parent;
 
     private float gCost, hCost, fCost;
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Obstacle"))
+        {
+            isWalkable = false;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Obstacle"))
+        {
+            isWalkable = true;
+        }
+    }
+
 
     //Propeties
     public bool IsWalkable { get => isWalkable; set => isWalkable = value; }

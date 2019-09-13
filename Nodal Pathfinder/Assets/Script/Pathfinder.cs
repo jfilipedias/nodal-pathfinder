@@ -9,8 +9,6 @@ public class Pathfinder : MonoBehaviour
 
     public void FindPath(Node startNode, Node targetNode)
     {
-        Debug.Log("Try find");
-
         List<Node> openSet = new List<Node>();
         HashSet<Node> closedSet = new HashSet<Node>();
         openSet.Add(startNode);
