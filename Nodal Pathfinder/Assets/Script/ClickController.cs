@@ -1,21 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ClickController : MonoBehaviour
-{
-    [SerializeField]
-    private LayerMask clickableLayer;
+{   
+    private LayerMask nodeLayer;
+    private LayerMask cylinderLayer;
 
     [SerializeField]
     private Material pathMaterial;
 
+    [SerializeField]
+    private Image selectionCircle;
+
+    [SerializeField]
+    private CylinderController cylinder;
+
     private Node startNode, targetNode;
-    private bool isFirstClick = true;
+
     private Pathfinder pathfinder;
+
+    private bool isCircleSeleted = false;
 
     private void Awake()
     {
+        nodeLayer = LayerMask.GetMask("Node");
+        cylinderLayer = LayerMask.GetMask("Cylinder");
         pathfinder = this.GetComponent<Pathfinder>();
     }
 
@@ -32,16 +43,16 @@ public class ClickController : MonoBehaviour
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, clickableLayer))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, cylinderLayer))
         {
-            if (isFirstClick)
+            isCircleSeleted = true;
+            selectionCircle.enabled = true;
+        }
+        else if (Physics.Raycast(ray, out hit, Mathf.Infinity, nodeLayer))
+        {
+            if (isCircleSeleted)
             {
-                isFirstClick = false;
-                startNode = hit.collider.GetComponent<Node>();
-            }
-            else
-            {
-                isFirstClick = true;
+                startNode = cylinder.NodeCollided;
                 targetNode = hit.collider.GetComponent<Node>();
 
                 pathfinder.FindPath(startNode, targetNode);
