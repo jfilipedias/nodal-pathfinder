@@ -57,6 +57,7 @@ public class ClickController : MonoBehaviour
 
                 pathfinder.FindPath(startNode, targetNode);
                 DrawPath();
+                cylinder.GetComponent<CylinderController>().Move();
             }
         }
     }
