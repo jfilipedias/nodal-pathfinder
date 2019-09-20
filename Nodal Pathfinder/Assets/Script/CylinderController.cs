@@ -7,9 +7,7 @@ public class CylinderController : MonoBehaviour
     private Node nodeCollided;
 
     [SerializeField]
-    private Pathfinder pathfinder; 
-
-    private float speed = 2;
+    private Pathfinder pathfinder;
     
     private void OnTriggerEnter(Collider other)
     {
@@ -21,10 +19,24 @@ public class CylinderController : MonoBehaviour
 
     public void Move()
     {
-        for(int c = 0; c < pathfinder.Path.Count; c++)
+        StartCoroutine(MoveBetweenNodes());
+    }
+
+    private IEnumerator MoveBetweenNodes()
+    {
+        foreach (Node node in pathfinder.Path)
         {
-            print("Debug " + c++);
-            this.transform.position = Vector3.Lerp(this.transform.position, pathfinder.Path[c].transform.position, speed * Time.deltaTime);
+            Vector3 startPosition = this.transform.position;
+            float elapsedTime = 0;
+            float time = 0.3f;
+
+            while (elapsedTime < time)
+            {
+                this.transform.position = Vector3.Lerp(startPosition, node.transform.position, elapsedTime / time);
+                elapsedTime += Time.deltaTime;
+
+                yield return null;
+            }
         }
     }
 
