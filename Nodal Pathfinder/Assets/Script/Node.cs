@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
+[ExecuteInEditMode]
 public class Node : MonoBehaviour
 {
     //Attributes
@@ -13,6 +15,14 @@ public class Node : MonoBehaviour
 
     private float gCost, hCost, fCost;
 
+    [SerializeField]
+    private Sprite pathSprite;
+
+    private void Awake()
+    {
+        Image nodeImage = GetComponentInChildren<Image>();
+        nodeImage.sprite = pathSprite;   
+    }
 
     private void OnTriggerEnter(Collider other)
     {

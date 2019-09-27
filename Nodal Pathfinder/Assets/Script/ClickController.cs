@@ -56,13 +56,13 @@ public class ClickController : MonoBehaviour
                 targetNode = hit.collider.GetComponent<Node>();
 
                 pathfinder.FindPath(startNode, targetNode);
-                DrawPath();
+                //DrawPath();
                 cylinder.GetComponent<CylinderController>().Move();
             }
         }
     }
 
-    private void DrawPath()
+    /*private void DrawPath()
     {
         startNode.gameObject.transform.GetChild(0).GetComponent<Renderer>().material = pathMaterial;
         foreach(Node node in pathfinder.Path)
@@ -70,5 +70,5 @@ public class ClickController : MonoBehaviour
             GameObject nodeCore = node.gameObject.transform.GetChild(0).gameObject;
             nodeCore.GetComponent<Renderer>().material = pathMaterial;
         }
-    }
+    }*/
 }
