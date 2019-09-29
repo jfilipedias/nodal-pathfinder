@@ -8,14 +8,11 @@ public class ClickController : MonoBehaviour
     private LayerMask nodeLayer;
     private LayerMask cylinderLayer;
 
-    [SerializeField]
-    private Material pathMaterial;
+    public Material pathMaterial;
+    
+    public Image selectionCircle;
 
-    [SerializeField]
-    private Image selectionCircle;
-
-    [SerializeField]
-    private CylinderController cylinder;
+    public CylinderController cylinder;
 
     private Node startNode, targetNode;
 
@@ -61,14 +58,4 @@ public class ClickController : MonoBehaviour
             }
         }
     }
-
-    /*private void DrawPath()
-    {
-        startNode.gameObject.transform.GetChild(0).GetComponent<Renderer>().material = pathMaterial;
-        foreach(Node node in pathfinder.Path)
-        {
-            GameObject nodeCore = node.gameObject.transform.GetChild(0).gameObject;
-            nodeCore.GetComponent<Renderer>().material = pathMaterial;
-        }
-    }*/
 }

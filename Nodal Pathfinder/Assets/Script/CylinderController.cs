@@ -6,8 +6,7 @@ public class CylinderController : MonoBehaviour
 {
     private Node nodeCollided;
 
-    [SerializeField]
-    private Pathfinder pathfinder;
+    public Pathfinder pathfinder;
     
     private void OnTriggerEnter(Collider other)
     {

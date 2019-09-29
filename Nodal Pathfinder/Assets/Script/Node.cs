@@ -15,14 +15,17 @@ public class Node : MonoBehaviour
 
     private float gCost, hCost, fCost;
 
-    [SerializeField]
-    private Sprite pathSprite;
+    //Propeties
+    public bool IsWalkable { get => isWalkable; set => isWalkable = value; }
 
-    private void Awake()
-    {
-        Image nodeImage = GetComponentInChildren<Image>();
-        nodeImage.sprite = pathSprite;   
-    }
+    public List<Node> Neighbour { get => neighbour; set => neighbour = value; }
+
+    public Node Parent { get => parent; set => parent = value; }
+
+    public float GCost { get => gCost; set => gCost = value; }
+    public float HCost { get => hCost; set => hCost = value; }
+    public float FCost { get => gCost + hCost; }
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -39,16 +42,4 @@ public class Node : MonoBehaviour
             isWalkable = true;
         }
     }
-
-
-    //Propeties
-    public bool IsWalkable { get => isWalkable; set => isWalkable = value; }
-
-    public List<Node> Neighbour { get => neighbour; set => neighbour = value; }
-
-    public Node Parent { get => parent; set => parent = value; }
-
-    public float GCost { get => gCost; set => gCost = value; }
-    public float HCost { get => hCost; set => hCost = value; }
-    public float FCost { get => gCost + hCost; }
 }
