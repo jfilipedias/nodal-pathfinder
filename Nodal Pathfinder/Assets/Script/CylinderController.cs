@@ -1,13 +1,36 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class CylinderController : MonoBehaviour
 {
     private Node nodeCollided;
 
     public Pathfinder pathfinder;
-    
+
+    private bool isSelected = false;
+
+    private Image selectionCircle;
+
+    private void Awake()
+    {
+        selectionCircle = transform.GetComponentInChildren<Image>();
+    }
+
+    private void Update()
+    {
+        if (isSelected)
+        {
+            selectionCircle.enabled = true;
+        }
+        else
+        {
+            selectionCircle.enabled = false;
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Node"))
@@ -39,5 +62,8 @@ public class CylinderController : MonoBehaviour
         }
     }
 
+    //Property
     public Node NodeCollided { get => nodeCollided; }
+    
+    public bool IsSelected { get => isSelected; set => isSelected = value; }
 }
