@@ -256,8 +256,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
@@ -365,16 +363,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3615941425813583799}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: fae4be5dd34c4bf4cb3aaaa60ae15bd5,
-        type: 3}
-      propertyPath: m_Name
-      value: SM_node
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: fae4be5dd34c4bf4cb3aaaa60ae15bd5,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: fae4be5dd34c4bf4cb3aaaa60ae15bd5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -445,6 +433,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f7482996e1938ed4bb5d1f5507fef2f3, type: 2}
+    - target: {fileID: -927199367670048503, guid: fae4be5dd34c4bf4cb3aaaa60ae15bd5,
+        type: 3}
+      propertyPath: m_Name
+      value: SM_node
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: fae4be5dd34c4bf4cb3aaaa60ae15bd5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fae4be5dd34c4bf4cb3aaaa60ae15bd5, type: 3}
 --- !u!4 &415145256497706230 stripped
